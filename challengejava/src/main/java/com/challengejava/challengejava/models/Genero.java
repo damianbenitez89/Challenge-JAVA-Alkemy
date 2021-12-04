@@ -21,9 +21,41 @@ public class Genero {
     public Genero() {
     }
 
-    public Genero(String name, String imagen, List<Pelicula> peliculas) {
+    public Genero(String name, String imagen) {
         this.name = name;
         this.imagen = imagen;
+
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    public List<Pelicula> getPeliculas() {
+        return peliculas;
+    }
+
+    public void setPeliculas(List<Pelicula> peliculas) {
         this.peliculas = peliculas;
     }
 }

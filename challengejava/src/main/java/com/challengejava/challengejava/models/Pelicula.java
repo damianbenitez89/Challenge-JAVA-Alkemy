@@ -15,7 +15,7 @@ public class Pelicula {
     private Long id;
     private String imagen;
     private String titulo;
-    private LocalDateTime fechaDeCreacion;
+    private String fechaDeCreacion;
     private int calificacion;
 
     @ManyToMany(mappedBy = "peliculas")
@@ -30,7 +30,7 @@ public class Pelicula {
     public Pelicula() {
     }
 
-    public Pelicula( String imagen, String titulo, LocalDateTime fechaDeCreacion, int calificacion, List<Personaje> personajes, List<Genero> generos) {
+    public Pelicula( String imagen, String titulo, String fechaDeCreacion, int calificacion, List<Personaje> personajes, List<Genero> generos) {
 
         this.imagen = imagen;
         this.titulo = titulo;
@@ -64,11 +64,11 @@ public class Pelicula {
         this.titulo = titulo;
     }
 
-    public LocalDateTime getFechaDeCreacion() {
+    public String getFechaDeCreacion() {
         return fechaDeCreacion;
     }
 
-    public void setFechaDeCreacion(LocalDateTime fechaDeCreacion) {
+    public void setFechaDeCreacion(String fechaDeCreacion) {
         this.fechaDeCreacion = fechaDeCreacion;
     }
 

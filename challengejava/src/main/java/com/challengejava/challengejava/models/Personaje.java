@@ -12,10 +12,15 @@ public class Personaje {
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     private Long id;
+    @Column
     private String imagen;
+    @Column
     private String nombre;
+    @Column
     private int edad;
+    @Column
     private Double peso;
+    @Column
     private String historia;
 
     @ManyToMany(cascade = CascadeType.ALL)

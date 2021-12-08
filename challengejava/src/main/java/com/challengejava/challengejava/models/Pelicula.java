@@ -13,9 +13,13 @@ public class Pelicula {
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     private Long id;
+    @Column
     private String imagen;
+    @Column
     private String titulo;
+    @Column
     private String fechaDeCreacion;
+    @Column
     private int calificacion;
 
     @ManyToMany(mappedBy = "peliculas")

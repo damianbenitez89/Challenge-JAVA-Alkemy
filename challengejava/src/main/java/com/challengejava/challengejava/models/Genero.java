@@ -12,7 +12,9 @@ public class Genero {
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     private Long id;
+    @Column
     private String name;
+    @Column
     private String imagen;
 
     @ManyToMany(mappedBy = "generos")

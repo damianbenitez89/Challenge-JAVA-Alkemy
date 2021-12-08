@@ -1,47 +1,36 @@
 package com.challengejava.challengejava.controllers;
 
+import com.challengejava.challengejava.dao.PeliculaDAO;
 import com.challengejava.challengejava.models.Genero;
 import com.challengejava.challengejava.models.Pelicula;
 import com.challengejava.challengejava.models.Personaje;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@RequestMapping(value = "/")
 public class PeliculaController {
 
+    @Autowired
+    private PeliculaDAO peliculaDAO;
 
-    public List<Genero> getGeneros(){
-        List<Genero> generos = new ArrayList<>();
-
-        Genero genero1 = new Genero("Drama","img");
-        Genero genero2 = new Genero("Ciencia Ficcion","img");
-        Genero genero3 = new Genero("Terror","img");
-        Genero genero4 = new Genero("infantil","img");
-
-        generos.add(genero1);
-        generos.add(genero2);
-        generos.add(genero3);
-        generos.add(genero4);
-
-
-        return generos;
+    @PostMapping(value = "crearPelicual")
+    public void guardarPelicula(@RequestBody Pelicula pelicula){
+        peliculaDAO.save(pelicula);
     }
 
-
-    @RequestMapping(value = "movies")
+    @GetMapping(value = "movies")
     public List<Pelicula>getPeliculas() {
-        List<Pelicula> peliculas = new ArrayList<>();
 
-        personajeController personaje = new personajeController();
+        return peliculaDAO.findAll();
+    }
+    @DeleteMapping(value = "eliminarPelicula/{id}")
+    public void eliminarPelicula(@PathVariable("id") Long id){
+        peliculaDAO.deleteById(id);
 
-
-        Pelicula pelicula1 =new Pelicula("img","Forest Gump","1904",5, personaje.getPersonaje(),getGeneros());
-
-        peliculas.add(pelicula1);
-        return peliculas;
     }
 
 }

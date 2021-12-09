@@ -1,9 +1,9 @@
-package com.challengejava.challengejava.dao;
+package com.challengejava.challengejava.repositories;
 
 import com.challengejava.challengejava.models.Pelicula;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource
-public interface PeliculaDAO extends JpaRepository<Pelicula,Long> {
+public interface PeliculaRepository extends JpaRepository<Pelicula,Long> {
 }

@@ -1,13 +1,10 @@
 package com.challengejava.challengejava.controllers;
 
-import com.challengejava.challengejava.dao.PeliculaDAO;
-import com.challengejava.challengejava.models.Genero;
+import com.challengejava.challengejava.repositories.PeliculaRepository;
 import com.challengejava.challengejava.models.Pelicula;
-import com.challengejava.challengejava.models.Personaje;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -15,10 +12,11 @@ import java.util.List;
 public class PeliculaController {
 
     @Autowired
-    private PeliculaDAO peliculaDAO;
+    private PeliculaRepository peliculaDAO;
 
     @PostMapping(value = "crearPelicual")
     public void guardarPelicula(@RequestBody Pelicula pelicula){
+
         peliculaDAO.save(pelicula);
     }
 
@@ -29,6 +27,7 @@ public class PeliculaController {
     }
     @DeleteMapping(value = "eliminarPelicula/{id}")
     public void eliminarPelicula(@PathVariable("id") Long id){
+
         peliculaDAO.deleteById(id);
 
     }

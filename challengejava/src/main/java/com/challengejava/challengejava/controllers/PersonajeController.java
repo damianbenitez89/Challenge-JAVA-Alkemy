@@ -1,11 +1,10 @@
 package com.challengejava.challengejava.controllers;
 
-import com.challengejava.challengejava.dao.PersonajeDAO;
+import com.challengejava.challengejava.repositories.PersonajeRepository;
 import com.challengejava.challengejava.models.Personaje;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -13,7 +12,7 @@ import java.util.List;
 public class PersonajeController {
 
     @Autowired
-    private PersonajeDAO personajeDAO ;
+    private PersonajeRepository personajeDAO ;
 
     @PostMapping(value="characters")
     public void guardar(@RequestBody Personaje personaje){

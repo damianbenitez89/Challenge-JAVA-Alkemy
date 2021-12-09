@@ -22,10 +22,15 @@ public class Pelicula {
     @Column
     private int calificacion;
 
-    @ManyToMany(mappedBy = "peliculas")
+
+    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @JoinTable(name="pelicula_personaje",
+            joinColumns = @JoinColumn(name="pelicula_id"),
+            inverseJoinColumns = @JoinColumn(name = "personaje_id"))
     private List<Personaje>personajes=new ArrayList<Personaje>();
 
-    @ManyToMany(cascade = CascadeType.ALL)
+
+    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     @JoinTable(name="pelicula_genero",
             joinColumns = @JoinColumn(name="pelicula_id"),
             inverseJoinColumns = @JoinColumn(name = "genero_id"))

@@ -17,6 +17,7 @@ public class Genero {
     @Column
     private String imagen;
 
+
     @ManyToMany(mappedBy = "generos")
     private List<Pelicula> peliculas = new ArrayList<Pelicula>();
 

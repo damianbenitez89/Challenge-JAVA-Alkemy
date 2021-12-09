@@ -1,19 +1,15 @@
 package com.challengejava.challengejava;
 
-import com.challengejava.challengejava.dao.GeneroDAO;
-import com.challengejava.challengejava.dao.PeliculaDAO;
-import com.challengejava.challengejava.dao.PersonajeDAO;
+import com.challengejava.challengejava.repositories.GeneroRepository;
+import com.challengejava.challengejava.repositories.PeliculaRepository;
+import com.challengejava.challengejava.repositories.PersonajeRepository;
 import com.challengejava.challengejava.dao.UsuarioDAO;
 import com.challengejava.challengejava.models.Genero;
-import com.challengejava.challengejava.models.Pelicula;
 import com.challengejava.challengejava.models.Personaje;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @SpringBootApplication
 public class ChallengejavaApplication {
@@ -23,8 +19,10 @@ public class ChallengejavaApplication {
 		SpringApplication.run(ChallengejavaApplication.class, args);
 	}
 
+
+
 	@Bean
-	public CommandLineRunner initData(PeliculaDAO peliculaDAO , GeneroDAO generoDAO , PersonajeDAO personajeDAO , UsuarioDAO usuarioDAO) {
+	public CommandLineRunner initData(PeliculaRepository peliculaDAO , GeneroRepository generoDAO , PersonajeRepository personajeDAO , UsuarioDAO usuarioDAO) {
 		return (args) -> {
 			Personaje personaje1 = new Personaje("URL:IMG","Iron Man",50,75.8,"el del metal");
 			Personaje personaje2 = new Personaje("URL:IMG","HULK",43,120.8,"elv erde");
@@ -45,6 +43,7 @@ public class ChallengejavaApplication {
 			generoDAO.save(genero2);
 			generoDAO.save(genero3);
 			generoDAO.save(genero4);
+
 
 
 		};

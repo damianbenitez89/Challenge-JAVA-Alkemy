@@ -23,10 +23,7 @@ public class Personaje {
     @Column
     private String historia;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name="personaje_pelicula",
-            joinColumns = @JoinColumn(name="personaje_id"),
-            inverseJoinColumns = @JoinColumn(name = "pelicula_id"))
+    @ManyToMany(mappedBy = "personajes")
     private List<Pelicula> peliculas= new ArrayList<Pelicula>();
 
     public Personaje() {}
